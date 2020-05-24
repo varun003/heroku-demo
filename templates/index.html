@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Prediction Model</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+      <h1>House Price Prediction Application</h1>
+      <div class="login">
+      <form action="{{url_for('predict')}}" method="post">
+          <input type="text" name="Overall Quality" placeholder="Overall Quality-Enter Between 0-9" required="required">
+          <input type="text" name="Lot Area" placeholder="Lot Area-Enter Between 0-220000" required="required">
+          <input type="text" name="Central Air" placeholder="Central AirCondition-Enter 0 or 1" required="required">
+          <input type="text" name="Bathrooms" placeholder="Number of Bathrooms-Enter Between 0-3" required="required">
+          <input type="text" name="Functional" placeholder="Functional-Enter Between 0-4" required="required">
+          <input type="text" name="Sale Condition" placeholder="Sale Condition -  Enter Between 0-4" required="required">
+          <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      </form>
+      <br>
+      <br>
+      {{ prediction_text }}
+  </body>
+</html>
